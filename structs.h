@@ -4,10 +4,10 @@
 typedef struct {
     int id;
     int rodada;
-    int timeCasa;
-    int timeFora;
+    int idTimeCasa;
+    int idTimeVisitante;
     int golsCasa;
-    int golsFora;
+    int golsVisitante;
     int realizada;
 } Partida;
 
