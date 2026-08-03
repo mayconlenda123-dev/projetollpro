@@ -127,6 +127,11 @@ void simularCampeonato(
     int totalTimes
 );
 
+int validarConfronto(
+    int indiceCasa,
+    int indiceVisitante
+);
+
 //FUNÇÕES UTILITARIAS
 void limparTela();
 
