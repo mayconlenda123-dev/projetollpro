@@ -7,7 +7,7 @@
 //FUNÇÕES DE TIMES
 void cadastrarTime(Time times[], int *totalTimes);
 void listarTimes(Time times[], int totalTimes);
-void buscarindiceTime(Time times[], int totalTimes, int id);
+int buscarIndiceTime(Time times[], int totalTimes, int id);
 void buscarTime(Time times[], int totalTimes);
 void alterarTime(Time times[], int totalTimes);
 void removerTime(Time times[], int *totalTimes);
