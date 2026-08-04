@@ -3,6 +3,7 @@
 #include "structs.h"
 #include "constantes.h"
 #include "funcoes.h"
+#include "demo.h"
 
 int main() {
     int opcao;
@@ -28,10 +29,11 @@ int main() {
             "5 - Remover Time\n"
             "6 - Cadastrar Jogador\n"
             "7 - Listar Jogadores\n"
-            "8 - Registrar Partida\n"
-            "9 - Classificacao\n"
-            "10 - Relatorios\n"
-            "11 - Simular Campeonato\n"
+            "8 - Preparar Campeonato Demo"
+            "9 - Registrar Partida\n"
+            "10 - Classificacao\n"
+            "11 - Relatorios\n"
+            "12 - Simular Campeonato\n"
             "0 - Sair\n\n"
             "Digite sua escolha: "
         );
@@ -66,20 +68,24 @@ int main() {
             case 7:
                 printf("Listar Jogadores\n");
                 break;
-
+            
             case 8:
-                printf("Registrar Partida\n");
+                prepararCampeonatoDemo(times, &totalTimes, jogadores, &totalJogadores, partidas, &totalPartidas);
                 break;
 
             case 9:
-                printf("Classificacao\n");
+                printf("Registrar Partida\n");
                 break;
 
             case 10:
-                printf("Relatorios\n");
+                printf("Classificacao\n");
                 break;
 
             case 11:
+                printf("Relatorios\n");
+                break;
+
+            case 12:
                 printf("Simular Campeonato\n");
                 break;
 

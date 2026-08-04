@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <string.h>
+#include "structs.h"
+#include "constantes.h"
+#include "funcoes.h"
+
+extern const Time TIMES_DEMO[];
+
+extern const int NUM_TIMES_DEMO;
+
+extern const Jogador JOGADORES_DEMO[];
+
+extern const int NUM_JOGADORES_DEMO;
+
+void carregarTimesDemo(Time times[], int *totalTimes);
+
+void carregarJogadoresDemo(Jogador jogadores[], int *totalJogadores);
+
+void carregarDadosDemo(
+    Time times[],
+    int *totalTimes,
+    Jogador jogadores[],
+    int *totalJogadores
+);
+
+void prepararCampeonatoDemo (
+    Time times[],
+    int *totalTimes,
+    Jogador jogadores[],
+    int *totalJogadores,
+    Partida partidas[],
+    int *totalPartidas
+);
+
