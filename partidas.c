@@ -31,9 +31,6 @@ Nenhum.
     visitante->golsPro += golsVisitante;
     visitante->golsContra += golsCasa;
 
-    casa->saldoGols = casa->golsPro - casa->golsContra;
-    visitante->saldoGols = visitante->golsPro - visitante->golsContra;
-
     if (golsCasa > golsVisitante)
     {
         casa->vitorias++;
@@ -73,12 +70,12 @@ void registrarPartida(Partida partidas[], int *totalPartidas, Time times[], int 
     printf("ID do time da casa: ");
     scanf("%d", &idCasa);
 
-    indiceCasa = buscarindiceTime(times, totalTimes, idCasa);
+    indiceCasa = buscarIndiceTime(times, totalTimes, idCasa);
 
     printf("ID do time visitante: ");
     scanf("%d", &idVisitante);
 
-    indiceVisitante = buscarindiceTime(times, totalTimes, idVisitante);
+    indiceVisitante = buscarIndiceTime(times, totalTimes, idVisitante);
 
     if (!validarConfronto(indiceCasa, indiceVisitante))
     {

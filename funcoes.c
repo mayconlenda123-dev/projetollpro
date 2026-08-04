@@ -4,19 +4,6 @@
 #include "constantes.h"
 #include "funcoes.h"
 
-// FUNÇÕES DE TIMES
-int buscarIndiceTime(Time times[], int totalTimes, int id)
-{
-    for (int i = 0; i < totalTimes, i++){
-        if (times[i].id == id)
-        {
-            return i;
-        }
-    }
-
-    return -1;
-}
-
 // FUNÇÕES DE JOGADORES
 int buscarIndiceJogador(Jogador jogadores[], int totalJogadores, int id)
 {
