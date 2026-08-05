@@ -2,7 +2,13 @@
 #include <string.h>
 #include "structs.h"
 #include "constantes.h"
-#include "funcoes.h"
+#include "partidas.h"
+#include "times.h"
+#include "jogadores.h"
+#include "classificacao.h"
+#include "util.h"
+#include "simulacao.h"
+#include "relatorios.h"
 #include "demo.h"
 
 int main() {
@@ -29,11 +35,14 @@ int main() {
             "5 - Remover Time\n"
             "6 - Cadastrar Jogador\n"
             "7 - Listar Jogadores\n"
-            "8 - Preparar Campeonato Demo"
-            "9 - Registrar Partida\n"
-            "10 - Classificacao\n"
-            "11 - Relatorios\n"
-            "12 - Simular Campeonato\n"
+            "8 - Buscar Jogadores\n"
+            "9 - Alterar Jogadores\n"
+            "10 - Remover Jogadores\n"
+            "11 - Preparar Campeonato Demo\n"
+            "12 - Registrar Partida\n"
+            "13 - Classificacao\n"
+            "14 - Relatorios\n"
+            "15 - Simular Campeonato\n"
             "0 - Sair\n\n"
             "Digite sua escolha: "
         );
@@ -42,51 +51,63 @@ int main() {
 
         switch (opcao) {
             case 1:
-                printf("Cadastrar Time\n");
+                cadastrarTime (times, &totalTimes);
                 break;
 
             case 2:
-                printf("Listar Times\n");
+                listarTimes(times, totalTimes);
                 break;
 
             case 3:
-                printf("Buscar Time\n");
+                buscarTime (times, totalTimes);
                 break;
 
             case 4:
-                printf("Alterar Time\n");
+                alterarTime (times, totalTimes);
                 break;
 
             case 5:
-                printf("Remover Time\n");
+                removerTime (times, &totalTimes);
                 break;
 
             case 6:
-                printf("Cadastrar Jogador\n");
+                cadastrarJogador (jogadores, &totalJogadores, times, totalTimes);
                 break;
 
             case 7:
-                printf("Listar Jogadores\n");
+                listarJogadores (jogadores ,totalJogadores, times, totalTimes);
                 break;
-            
+
             case 8:
-                prepararCampeonatoDemo(times, &totalTimes, jogadores, &totalJogadores, partidas, &totalPartidas);
+                buscarJogador (jogadores, totalJogadores, times, totalTimes );
                 break;
 
             case 9:
-                printf("Registrar Partida\n");
+                alterarJogador (jogadores, totalJogadores, times, totalTimes);
                 break;
 
             case 10:
-                printf("Classificacao\n");
+                removerJogador (jogadores, &totalJogadores, times, totalTimes);
                 break;
 
             case 11:
-                printf("Relatorios\n");
+                prepararCampeonatoDemo(times, &totalTimes, jogadores, &totalJogadores, partidas, &totalPartidas);
                 break;
 
             case 12:
-                printf("Simular Campeonato\n");
+                registrarPartida (partidas, &totalPartidas, times, totalTimes);
+                break;
+
+            case 13:
+                mostrarClassificacao (times, totalTimes);
+                break;
+
+            case 14:
+                gerarRelatorios (times, totalTimes, jogadores, totalJogadores);
+                break;
+
+            case 15:
+                simularCampeonato (partidas, totalPartidas, times, totalTimes);
                 break;
 
             case 0:

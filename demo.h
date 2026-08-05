@@ -2,7 +2,9 @@
 #include <string.h>
 #include "structs.h"
 #include "constantes.h"
-#include "funcoes.h"
+
+#ifndef DEMO_H
+#define DEMO_H
 
 extern const Time TIMES_DEMO[];
 
@@ -32,3 +34,4 @@ void prepararCampeonatoDemo (
     int *totalPartidas
 );
 
+#endif
