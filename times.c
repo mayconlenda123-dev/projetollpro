@@ -12,9 +12,9 @@
 
 int buscarIndiceTime(Time times[], int totalTimes, int id)
 {
-    for(int i = 0; i < totalTimes; i++)
+    for (int i = 0; i < totalTimes; i++)
     {
-        if(times[i].id == id && times[i].ativo == 1)
+        if (times[i].id == id && times[i].ativo == 1)
         {
             return i;
         }
@@ -38,8 +38,11 @@ void cadastrarTime(Time times[], int *totalTimes)
     printf("Tecnico: ");
     scanf(" %[^\n]", novo.tecnico);
 
-    printf("Forca (1-100): ");
-    scanf("%d", &novo.forca);
+    do
+    {
+        novo.forca = lerInteiro("Forca do time (1-100): ");
+
+    } while (novo.forca < 1 || novo.forca > 100);
 
     novo.quantidadeJogadores = 0;
     novo.jogos = 0;
@@ -60,15 +63,15 @@ void cadastrarTime(Time times[], int *totalTimes)
 
 void listarTimes(Time times[], int totalTimes)
 {
-    if(totalTimes == 0)
+    if (totalTimes == 0)
     {
         printf("\nNenhum time cadastrado.\n");
         return;
     }
 
-    for(int i = 0; i < totalTimes; i++)
+    for (int i = 0; i < totalTimes; i++)
     {
-        if(times[i].ativo == 1)
+        if (times[i].ativo == 1)
         {
             printf("\n==============================");
             printf("\nID: %d", times[i].id);
@@ -93,7 +96,7 @@ void buscarTime(Time times[], int totalTimes)
 
     int indice = buscarIndiceTime(times, totalTimes, id);
 
-    if(indice == -1)
+    if (indice == -1)
     {
         printf("\nTime nao encontrado.\n");
         return;
@@ -123,7 +126,7 @@ void alterarTime(Time times[], int totalTimes)
 
     int indice = buscarIndiceTime(times, totalTimes, id);
 
-    if(indice == -1)
+    if (indice == -1)
     {
         printf("\nTime nao encontrado.\n");
         return;
@@ -153,7 +156,7 @@ void removerTime(Time times[], int *totalTimes)
 
     int indice = buscarIndiceTime(times, *totalTimes, id);
 
-    if(indice == -1)
+    if (indice == -1)
     {
         printf("\nTime nao encontrado.\n");
         return;

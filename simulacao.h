@@ -2,6 +2,15 @@
 #include <string.h>
 #include "structs.h"
 #include "constantes.h"
+#include "partidas.h"
+#include "times.h"
+#include "jogadores.h"
+#include "classificacao.h"
+#include "util.h"
+#include "simulacao.h"
+#include "relatorios.h"
+#include "demo.h"
+
 
 #ifndef SIMULACAO_H
 #define SIMULACAO_H
@@ -13,10 +22,16 @@ void gerarConfrontos(
     int totalTimes
 );
 
-void simularRodada(
+void simularPartida(
     Partida partidas[],
     int totalPartidas,
     Time times[]
+);
+
+void simularRodada(
+    Partida partidas[],
+    Time times[],
+    int totalTimes
 );
 
 void simularCampeonato(

@@ -3,6 +3,7 @@
 
 typedef struct {
     int id;
+    int partida;
     int rodada;
     int idTimeCasa;
     int idTimeVisitante;

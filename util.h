@@ -2,6 +2,15 @@
 #include <string.h>
 #include "structs.h"
 #include "constantes.h"
+#include "partidas.h"
+#include "times.h"
+#include "jogadores.h"
+#include "classificacao.h"
+#include "util.h"
+#include "simulacao.h"
+#include "relatorios.h"
+#include "demo.h"
+
 
 #ifndef UTIL_H
 #define UTIL_H

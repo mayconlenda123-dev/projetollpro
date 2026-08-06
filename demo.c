@@ -13,23 +13,23 @@
 
 #define JOGADORES_POR_TIME 11
 #define NUM_JOGADORES_DEMO (NUM_TIMES_DEMO * JOGADORES_POR_TIME)
-#define TIME_DEMO(id, nome) \
-    {id, nome, "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+#define TIME_DEMO(id, nome, forca) \
+    {id, nome,forca, "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
 
 const Time TIMES_DEMO[] =
     {
-        TIME_DEMO(1, "Barcelona"),
-        TIME_DEMO(2, "Liverpool"),
-        TIME_DEMO(3, "Real Madrid"),
-        TIME_DEMO(4, "Milan"),
-        TIME_DEMO(5, "PSG"),
-        TIME_DEMO(6, "Bayern München"),
-        TIME_DEMO(7, "Arsenal"),
-        TIME_DEMO(8, "Manchester City"),
-        TIME_DEMO(9, "Manchester United"),
-        TIME_DEMO(10, "Chelsea"),
-        TIME_DEMO(11, "Juventus"),
-        TIME_DEMO(12, "Roma")};
+        TIME_DEMO(1, "Barcelona",96),
+        TIME_DEMO(2, "Liverpool",91),
+        TIME_DEMO(3, "Real Madrid",92),
+        TIME_DEMO(4, "Milan",85),
+        TIME_DEMO(5, "PSG",94),
+        TIME_DEMO(6, "Bayern München",93),
+        TIME_DEMO(7, "Arsenal",93),
+        TIME_DEMO(8, "Manchester City",92),
+        TIME_DEMO(9, "Manchester United",85),
+        TIME_DEMO(10, "Chelsea",86),
+        TIME_DEMO(11, "Juventus",86),
+        TIME_DEMO(12, "Roma",80),};
 
 // Struct Jogador (ver structs.h): { id, nome, idade, camisa, posicao, idTime, gols, cartoesAmarelos, cartoesVermelhos, ativo }
 const Jogador JOGADORES_DEMO[] =

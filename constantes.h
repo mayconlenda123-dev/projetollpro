@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include <string.h>
 #include "structs.h"
+#include "partidas.h"
+#include "times.h"
+#include "jogadores.h"
+#include "classificacao.h"
+#include "util.h"
+#include "simulacao.h"
+#include "relatorios.h"
+#include "demo.h"
+
 
 #ifndef CONTANTES_H
 #define CONSTANTES_H

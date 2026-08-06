@@ -2,6 +2,15 @@
 #include <string.h>
 #include "structs.h"
 #include "constantes.h"
+#include "partidas.h"
+#include "times.h"
+#include "jogadores.h"
+#include "classificacao.h"
+#include "util.h"
+#include "simulacao.h"
+#include "relatorios.h"
+#include "demo.h"
+
 
 #ifndef JOGADORES_H
 #define JOGADORES_H
@@ -13,7 +22,7 @@ void cadastrarJogador(
     int totalTimes
 );
 
-void listarJogadores(
+void listarJogador(
     Jogador jogadores[],
     int totalJogadores
 );
@@ -27,6 +36,8 @@ int buscarIndiceJogador(
 void buscarJogador(
     Jogador jogadores[],
     int totalJogadores
+    Time times[],
+    int totalTimes
 );
 
 void alterarJogador(
