@@ -4,11 +4,6 @@
 #include "constantes.h"
 #include "partidas.h"
 #include "times.h"
-#include "jogadores.h"
-#include "classificacao.h"
-#include "util.h"
-#include "simulacao.h"
-#include "relatorios.h"
 
 int buscarIndicePartida(Partida partidas[], int totalPartidas, int id){
     for (int i = 0; i < totalPartidas; i++){

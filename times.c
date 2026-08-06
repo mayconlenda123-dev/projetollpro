@@ -2,13 +2,8 @@
 #include <string.h>
 #include "structs.h"
 #include "constantes.h"
-#include "partidas.h"
 #include "times.h"
-#include "jogadores.h"
-#include "classificacao.h"
 #include "util.h"
-#include "simulacao.h"
-#include "relatorios.h"
 
 int buscarIndiceTime(Time times[], int totalTimes, int id)
 {

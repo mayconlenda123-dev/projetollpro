@@ -4,11 +4,9 @@
 #include "constantes.h"
 #include "partidas.h"
 #include "times.h"
-#include "jogadores.h"
 #include "classificacao.h"
 #include "util.h"
 #include "simulacao.h"
-#include "relatorios.h"
 
 void gerarConfrontos(Partida partidas[], int *totalPartidas, Time times[], int totalTimes)
 {
@@ -53,7 +51,7 @@ void gerarConfrontos(Partida partidas[], int *totalPartidas, Time times[], int t
     }
 }
 
-void simularPartida (Partida partidas[], int totalPartidas, Time times[])
+void simularPartida (Partida *partida, int totalPartidas, Time times[], int totalTimes)
 {
     if (partida->realizada)
     {
@@ -104,7 +102,7 @@ void simularRodada(
     int totalTimes,
     int rodada)
 {
-    printf("\n==============================\n")
+    printf("\n==============================\n");
     printf("            RODADA %d           \n", rodada);
     printf("==============================\n\n");
 
@@ -114,6 +112,7 @@ void simularRodada(
         {
             simularPartida(
                 &partidas[i],
+                totalPartidas,
                 times,
                 totalTimes
             );
@@ -139,8 +138,7 @@ void simularCampeonato (
         );
     }
 
-    for (int rodada = 1; rodada < totalTimes, rodada++)
-    {
+    for (int rodada = 1; rodada < totalTimes; rodada++){
         simularRodada(
             partidas,
             *totalPartidas,
@@ -151,7 +149,7 @@ void simularCampeonato (
 
         ordenarTabela (times, totalTimes);
 
-        printf("\nCLASSIFICAÇÃO\n\n";
+        printf("\nCLASSIFICAÇÃO\n\n");
         
         mostrarClassificacao(
             times, totalTimes
@@ -162,9 +160,9 @@ void simularCampeonato (
 
     }
 
-    printf("\n==============================\n")
+    printf("\n==============================\n");
     printf("CAMPEONATO ENCERRADO!\n");
-    printf("==============================\n\n")
+    printf("==============================\n\n");
 
     printf("CAMPEAO: %s\n", times[0].nome);
     printf("PONTOS: %d\n", times[0].pontos);

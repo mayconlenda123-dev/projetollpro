@@ -2,13 +2,9 @@
 #include <string.h>
 #include "structs.h"
 #include "constantes.h"
-#include "partidas.h"
 #include "times.h"
 #include "jogadores.h"
-#include "classificacao.h"
 #include "util.h"
-#include "simulacao.h"
-#include "relatorios.h"
 
 int buscarIndiceJogador(Jogador jogadores[], int totalJogadores, int id)
 {
@@ -170,7 +166,7 @@ void alterarJogador(Jogador jogadores[], int totalJogadores, Time times[], int t
     printf("Idade: %d\n", jogadores[indice].idade);
     printf("Posicao: %s\n", jogadores[indice].posicao);
     printf("Camisa: %d\n", jogadores[indice].camisa);
-    printf("ID do Time: %d\n", jogadores[indice].idTIme);
+    printf("ID do Time: %d\n", jogadores[indice].idTime);
 
     printf("\n===== NOVOS DADOS =====\n");
 
