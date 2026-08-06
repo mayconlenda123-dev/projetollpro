@@ -14,7 +14,7 @@
 #define JOGADORES_POR_TIME 11
 #define NUM_JOGADORES_DEMO (NUM_TIMES_DEMO * JOGADORES_POR_TIME)
 #define TIME_DEMO(id, nome, forca) \
-    {id, nome,forca, "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    {id, nome, "", "", 0, 0, 0, 0, 0, 0, 0, 0, forca, 1}
 
 const Time TIMES_DEMO[] =
     {

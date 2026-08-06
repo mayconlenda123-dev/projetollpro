@@ -27,4 +27,9 @@ void atualizarEstatisticas(
 );
 
 
+int validarConfronto(
+    int indiceCasa,
+    int indiceVisitante
+);
+
 #endif

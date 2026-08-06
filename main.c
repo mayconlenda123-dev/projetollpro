@@ -87,7 +87,7 @@ int main() {
                 break;
 
             case 10:
-                removerJogador (jogadores, &totalJogadores, times, totalTimes);
+                removerJogador (jogadores, &totalJogadores);
                 break;
 
             case 11:
@@ -107,7 +107,7 @@ int main() {
                 break;
 
             case 15:
-                simularCampeonato (partidas, totalPartidas, times, totalTimes);
+                simularCampeonato (partidas, &totalPartidas, times, totalTimes);
                 break;
 
             case 0:

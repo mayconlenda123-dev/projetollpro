@@ -9,7 +9,6 @@
 #include "util.h"
 #include "simulacao.h"
 #include "relatorios.h"
-#include "demo.h"
 
 
 #ifndef DEMO_H

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "structs.h"
 #include "constantes.h"
 #include "partidas.h"
@@ -51,7 +52,7 @@ void gerarConfrontos(Partida partidas[], int *totalPartidas, Time times[], int t
     }
 }
 
-void simularPartida (Partida *partida, int totalPartidas, Time times[], int totalTimes)
+void simularPartida (Partida *partida, Time times[], int totalTimes)
 {
     if (partida->realizada)
     {
@@ -74,9 +75,22 @@ void simularPartida (Partida *partida, int totalPartidas, Time times[], int tota
     {
         return;
     }
-
-    partida->golsCasa = rand() % 6;
-    partida->golsVisitante = rand() % 6;
+    
+    if (times[indiceCasa].forca >= 90){
+        partida->golsCasa = rand() % 6;
+    } else if (times[indiceCasa].forca >= 80){
+        partida->golsCasa = rand() % 5;
+    } else {
+        partida->golsCasa = rand() % 4;
+    }
+    
+    if (times[indiceVisitante].forca >= 90){
+        partida->golsVisitante = rand() % 6;
+    } else if (times[indiceVisitante].forca >= 80){
+        partida->golsVisitante = rand() % 5;
+    } else {
+        partida->golsVisitante = rand() % 4;
+    }
 
     partida->realizada = 1;
 
@@ -112,7 +126,6 @@ void simularRodada(
         {
             simularPartida(
                 &partidas[i],
-                totalPartidas,
                 times,
                 totalTimes
             );

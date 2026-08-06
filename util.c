@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "util.h"
 
 void limparBufferEntrada(void)
@@ -16,7 +17,7 @@ void limparTela(void) {
 }
 
 void pausar(void){
-    print("Pressione ENTER para continuar");
+    printf("Pressione ENTER para continuar");
     getchar();
 }
 

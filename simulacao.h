@@ -17,6 +17,7 @@ void simularPartida(Partida *partida, Time times[], int totalTimes);
 
 void simularRodada(
     Partida partidas[],
+    int totalPartidas,
     Time times[],
     int totalTimes,
     int rodada
@@ -24,15 +25,11 @@ void simularRodada(
 
 void simularCampeonato(
     Partida partidas[],
-    int totalPartidas,
+    int *totalPartidas,
     Time times[],
     int totalTimes
 );
 
-int validarConfronto(
-    int indiceCasa,
-    int indiceVisitante
-);
 
 
 #endif

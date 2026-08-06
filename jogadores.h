@@ -12,9 +12,11 @@ void cadastrarJogador(
     int totalTimes
 );
 
-void listarJogador(
+void listarJogadores(
     Jogador jogadores[],
-    int totalJogadores
+    int totalJogadores,
+    Time times[],
+    int totalTimes
 );
 
 int buscarIndiceJogador(
@@ -32,7 +34,9 @@ void buscarJogador(
 
 void alterarJogador(
     Jogador jogadores[],
-    int totalJogadores
+    int totalJogadores,
+    Time times[],
+    int totalTimes
 );
 
 void removerJogador(

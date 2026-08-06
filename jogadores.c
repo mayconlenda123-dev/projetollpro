@@ -53,7 +53,7 @@ void cadastrarJogador(Jogador jogadores[], int *totalJogadores, Time times[], in
     do
     {
 
-        novo.idade = lerIntero("Idade: ");
+        novo.idade = lerInteiro("Idade: ");
 
     } while (novo.idade <= 0);
     
