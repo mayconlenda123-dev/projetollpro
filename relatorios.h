@@ -6,6 +6,8 @@
 #ifndef RELATORIOS_H
 #define RELATORIOS_H
 
+int buscarIndiceMelhorClassificado(Time times[], int totalTimes);
+
 void mostrarMaiorAtaque(
     Time times[],
     int totalTimes

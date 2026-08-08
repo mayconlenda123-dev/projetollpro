@@ -75,21 +75,27 @@ void simularPartida (Partida *partida, Time times[], int totalTimes)
     {
         return;
     }
-    
-    if (times[indiceCasa].forca >= 90){
-        partida->golsCasa = rand() % 6;
-    } else if (times[indiceCasa].forca >= 80){
+    if (times[indiceCasa].forca == 100){
+        partida->golsCasa = rand() % 7;
+    }
+    else if (times[indiceCasa].forca >= 93){
         partida->golsCasa = rand() % 5;
-    } else {
+    } else if (times[indiceCasa].forca >= 85){
         partida->golsCasa = rand() % 4;
+    } else {
+        partida->golsCasa = rand() % 3;
     }
     
-    if (times[indiceVisitante].forca >= 90){
-        partida->golsVisitante = rand() % 6;
-    } else if (times[indiceVisitante].forca >= 80){
+
+    if (times[indiceVisitante].forca == 100){
+        partida->golsVisitante = rand() % 7;
+    }
+    else if (times[indiceVisitante].forca>= 93){
         partida->golsVisitante = rand() % 5;
-    } else {
+    } else if (times[indiceVisitante].forca >= 85){
         partida->golsVisitante = rand() % 4;
+    } else {
+        partida->golsVisitante = rand() % 3;
     }
 
     partida->realizada = 1;

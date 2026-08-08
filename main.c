@@ -48,66 +48,97 @@ int main() {
         );
 
         scanf("%d", &opcao);
+        limparBufferEntrada();
 
         switch (opcao) {
             case 1:
                 cadastrarTime (times, &totalTimes);
+                pausar();
+                limparTela();
                 break;
 
             case 2:
                 listarTimes(times, totalTimes);
+                pausar();
+                limparTela();
                 break;
 
             case 3:
                 buscarTime (times, totalTimes);
+                pausar();
+                limparTela();
                 break;
 
             case 4:
                 alterarTime (times, totalTimes);
+                pausar();
+                limparTela();
                 break;
 
             case 5:
                 removerTime (times, &totalTimes);
+                pausar();
+                limparTela();
                 break;
 
             case 6:
                 cadastrarJogador (jogadores, &totalJogadores, times, totalTimes);
+                pausar();
+                limparTela();
                 break;
 
             case 7:
                 listarJogadores (jogadores ,totalJogadores, times, totalTimes);
+                pausar();
+                limparTela();
                 break;
 
             case 8:
                 buscarJogador (jogadores, totalJogadores, times, totalTimes );
+                pausar();
+                limparTela();
                 break;
 
             case 9:
                 alterarJogador (jogadores, totalJogadores, times, totalTimes);
+                pausar();
+                limparTela();
                 break;
 
             case 10:
                 removerJogador (jogadores, &totalJogadores);
+                pausar();
+                limparTela();
                 break;
 
             case 11:
                 prepararCampeonatoDemo(times, &totalTimes, jogadores, &totalJogadores, partidas, &totalPartidas);
+                pausar();
+                limparTela();
                 break;
 
             case 12:
                 registrarPartida (partidas, &totalPartidas, times, totalTimes);
+                pausar();
+                limparTela();
                 break;
 
             case 13:
                 mostrarClassificacao (times, totalTimes);
+                pausar();
+                limparTela();
                 break;
 
             case 14:
                 gerarRelatorios (times, totalTimes, jogadores, totalJogadores);
+                pausar();
+                limparTela();
                 break;
 
             case 15:
                 simularCampeonato (partidas, &totalPartidas, times, totalTimes);
+                pausar();
+                limparTela();
                 break;
 
             case 0:

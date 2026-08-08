@@ -18,12 +18,12 @@
 
 const Time TIMES_DEMO[] =
     {
-        TIME_DEMO(1, "Barcelona",96),
+        TIME_DEMO(1, "Barcelona",100),
         TIME_DEMO(2, "Liverpool",91),
         TIME_DEMO(3, "Real Madrid",92),
         TIME_DEMO(4, "Milan",85),
         TIME_DEMO(5, "PSG",94),
-        TIME_DEMO(6, "Bayern München",93),
+        TIME_DEMO(6, "Bayern Munchen",93),
         TIME_DEMO(7, "Arsenal",93),
         TIME_DEMO(8, "Manchester City",92),
         TIME_DEMO(9, "Manchester United",85),
