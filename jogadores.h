@@ -41,7 +41,9 @@ void alterarJogador(
 
 void removerJogador(
     Jogador jogadores[],
-    int *totalJogadores
+    int *totalJogadores,
+    Time times[],
+    int totalTimes
 );
 
 #endif

@@ -68,6 +68,12 @@ void cadastrarJogador(Jogador jogadores[], int *totalJogadores, Time times[], in
 
     (*totalJogadores)++;
 
+    int indiceTime = buscarIndiceTime(times, totalTimes, novo.idTime);
+    if (indiceTime != -1)
+    {
+        times[indiceTime].quantidadeJogadores++;
+    }
+
     printf("\nJogador cadastrado com sucesso!\n");
 }
 
@@ -192,11 +198,22 @@ void alterarJogador(Jogador jogadores[], int totalJogadores, Time times[], int t
 
         int novoIdTime = lerInteiro ("\nNovo ID do time: ");
 
-        if (buscarIndiceTime(times, totalTimes, novoIdTime) == -1)
+        int indiceNovoTime = buscarIndiceTime(times, totalTimes, novoIdTime);
+
+        if (indiceNovoTime == -1)
         {
             printf("\nTime nao encontrado!\n");
             return;
         }
+
+        int indiceTimeAntigo = buscarIndiceTime(times, totalTimes, jogadores[indice].idTime);
+
+        if (indiceTimeAntigo != -1)
+        {
+            times[indiceTimeAntigo].quantidadeJogadores--;
+        }
+
+        times[indiceNovoTime].quantidadeJogadores++;
 
         jogadores[indice].idTime = novoIdTime;
     }
@@ -204,7 +221,7 @@ void alterarJogador(Jogador jogadores[], int totalJogadores, Time times[], int t
     printf("\nJogador alterado com sucesso!\n");
 }
 
-void removerJogador (Jogador jogadores[], int *totalJogadores)
+void removerJogador (Jogador jogadores[], int *totalJogadores, Time times[], int totalTimes)
 {
     if (*totalJogadores == 0)
     {
@@ -226,6 +243,13 @@ void removerJogador (Jogador jogadores[], int *totalJogadores)
     {
         printf("\nOperacao cancelada.\n");
         return;
+    }
+
+    int indiceTime = buscarIndiceTime(times, totalTimes, jogadores[indice].idTime);
+
+    if (indiceTime != -1 && times[indiceTime].quantidadeJogadores > 0)
+    {
+        times[indiceTime].quantidadeJogadores--;
     }
 
     for (int i = 0; i < *totalJogadores - 1;i++)

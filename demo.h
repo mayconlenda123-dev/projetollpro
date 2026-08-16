@@ -24,7 +24,7 @@ extern const int NUM_JOGADORES_DEMO;
 
 void carregarTimesDemo(Time times[], int *totalTimes);
 
-void carregarJogadoresDemo(Jogador jogadores[], int *totalJogadores);
+void carregarJogadoresDemo(Jogador jogadores[], int *totalJogadores, Time times[], int totalTimes);
 
 void carregarDadosDemo(
     Time times[],
@@ -40,6 +40,15 @@ void prepararCampeonatoDemo (
     int *totalJogadores,
     Partida partidas[],
     int *totalPartidas
+);
+
+extern const Jogador JOGADORES_DEMO_NUMERADOS[];
+
+void preencherJogadores(
+    Jogador jogadores[],
+    int *totalJogadores,
+    Time times[],
+    int totalTimes
 );
 
 #endif

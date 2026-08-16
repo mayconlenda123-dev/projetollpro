@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <string.h>
 #include "structs.h"
@@ -43,6 +44,7 @@ int main() {
             "13 - Classificacao\n"
             "14 - Relatorios\n"
             "15 - Simular Campeonato\n"
+            "16 - Preencher Jogadores Numerados (Times 1 e 2)\n"
             "0 - Sair\n\n"
             "Digite sua escolha: "
         );
@@ -106,7 +108,7 @@ int main() {
                 break;
 
             case 10:
-                removerJogador (jogadores, &totalJogadores);
+                removerJogador (jogadores, &totalJogadores, times, totalTimes);
                 pausar();
                 limparTela();
                 break;
@@ -137,6 +139,12 @@ int main() {
 
             case 15:
                 simularCampeonato (partidas, &totalPartidas, times, totalTimes);
+                pausar();
+                limparTela();
+                break;
+
+            case 16:
+                preencherJogadores(jogadores, &totalJogadores, times, totalTimes);
                 pausar();
                 limparTela();
                 break;

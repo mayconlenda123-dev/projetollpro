@@ -29,7 +29,8 @@ void atualizarEstatisticas(
 
 int validarConfronto(
     int indiceCasa,
-    int indiceVisitante
+    int indiceVisitante,
+    Time times[]
 );
 
 #endif

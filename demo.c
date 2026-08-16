@@ -18,12 +18,12 @@
 
 const Time TIMES_DEMO[] =
     {
-        TIME_DEMO(1, "Barcelona",100),
+        TIME_DEMO(1, "Barcelona",99),
         TIME_DEMO(2, "Liverpool",91),
         TIME_DEMO(3, "Real Madrid",92),
         TIME_DEMO(4, "Milan",85),
         TIME_DEMO(5, "PSG",94),
-        TIME_DEMO(6, "Bayern Munchen",93),
+        TIME_DEMO(6, "Bayern München",93),
         TIME_DEMO(7, "Arsenal",93),
         TIME_DEMO(8, "Manchester City",92),
         TIME_DEMO(9, "Manchester United",85),
@@ -239,11 +239,18 @@ void carregarTimesDemo(Time times[], int *totalTimes)
     *totalTimes = NUM_TIMES_DEMO;
 }
 
-void carregarJogadoresDemo(Jogador jogadores[], int *totalJogadores)
+void carregarJogadoresDemo(Jogador jogadores[], int *totalJogadores, Time times[], int totalTimes)
 {
     for (int i = 0; i < NUM_JOGADORES_DEMO; i++)
     {
         jogadores[i] = JOGADORES_DEMO[i];
+
+        int indiceTime = buscarIndiceTime(times, totalTimes, jogadores[i].idTime);
+
+        if (indiceTime != -1)
+        {
+            times[indiceTime].quantidadeJogadores++;
+        }
     }
 
     *totalJogadores = NUM_JOGADORES_DEMO;
@@ -257,7 +264,7 @@ void carregarDadosDemo(
 {
     carregarTimesDemo(times, totalTimes);
 
-    carregarJogadoresDemo(jogadores, totalJogadores);
+    carregarJogadoresDemo(jogadores, totalJogadores, times, *totalTimes);
 
     printf("\n=== Dados de demonstração carregados com sucesso! ===\n");
     printf("Times carregados: %d\n", *totalTimes);
@@ -268,7 +275,7 @@ void prepararCampeonatoDemo(Time times[], int *totalTimes, Jogador jogadores[], 
 {
     carregarTimesDemo(times, totalTimes);
 
-    carregarJogadoresDemo(jogadores, totalJogadores);
+    carregarJogadoresDemo(jogadores, totalJogadores, times, *totalTimes);
 
     gerarConfrontos(partidas, totalPartidas, times, *totalTimes);
 
@@ -278,5 +285,83 @@ void prepararCampeonatoDemo(Time times[], int *totalTimes, Jogador jogadores[], 
     printf("Times: %d\n", *totalTimes);
     printf("Jogadores: %d\n", *totalJogadores);
     printf("Partidas: %d\n", *totalPartidas);
+    printf("====================================\n");
+}
+
+// ==========================================================
+// SEGUNDO BANCO DEMO — JOGADORES NUMERADOS
+// Não cria times. Apenas vincula 22 jogadores fictícios
+// (11 por time) aos times de ID 1 e 2, sejam eles quais forem.
+// ==========================================================
+
+#define NUM_JOGADORES_DEMO_NUMERADOS (2 * JOGADORES_POR_TIME)
+
+// Struct Jogador (ver structs.h): { id, nome, idade, camisa, posicao, idTime, gols, cartoesAmarelos, cartoesVermelhos, ativo }
+// O campo "id" é só um placeholder — o id real é gerado na hora de carregar,
+// em cima do totalJogadores já existente, pra nunca colidir com outro jogador.
+const Jogador JOGADORES_DEMO_NUMERADOS[] =
+    {
+        // Time 1
+        {0, "Jogador 1", 25, 1, "GK", 1, 0, 0, 0, 1},
+        {0, "Jogador 2", 25, 2, "LD", 1, 0, 0, 0, 1},
+        {0, "Jogador 3", 25, 3, "ZAG", 1, 0, 0, 0, 1},
+        {0, "Jogador 4", 25, 4, "ZAG", 1, 0, 0, 0, 1},
+        {0, "Jogador 5", 25, 5, "LE", 1, 0, 0, 0, 1},
+        {0, "Jogador 6", 25, 6, "VOL", 1, 0, 0, 0, 1},
+        {0, "Jogador 7", 25, 7, "MC", 1, 0, 0, 0, 1},
+        {0, "Jogador 8", 25, 8, "MEI", 1, 0, 0, 0, 1},
+        {0, "Jogador 9", 25, 9, "PD", 1, 0, 0, 0, 1},
+        {0, "Jogador 10", 25, 10, "PE", 1, 0, 0, 0, 1},
+        {0, "Jogador 11", 25, 11, "CA", 1, 0, 0, 0, 1},
+
+        // Time 2
+        {0, "Jogador 12", 25, 1, "GK", 2, 0, 0, 0, 1},
+        {0, "Jogador 13", 25, 2, "LD", 2, 0, 0, 0, 1},
+        {0, "Jogador 14", 25, 3, "ZAG", 2, 0, 0, 0, 1},
+        {0, "Jogador 15", 25, 4, "ZAG", 2, 0, 0, 0, 1},
+        {0, "Jogador 16", 25, 5, "LE", 2, 0, 0, 0, 1},
+        {0, "Jogador 17", 25, 6, "VOL", 2, 0, 0, 0, 1},
+        {0, "Jogador 18", 25, 7, "MC", 2, 0, 0, 0, 1},
+        {0, "Jogador 19", 25, 8, "MEI", 2, 0, 0, 0, 1},
+        {0, "Jogador 20", 25, 9, "PD", 2, 0, 0, 0, 1},
+        {0, "Jogador 21", 25, 10, "PE", 2, 0, 0, 0, 1},
+        {0, "Jogador 22", 25, 11, "CA", 2, 0, 0, 0, 1},
+    };
+
+void preencherJogadores(Jogador jogadores[], int *totalJogadores, Time times[], int totalTimes)
+{
+    if (totalTimes < 2)
+    {
+        printf("\nCadastre pelo menos os times 1 e 2 antes de preencher os jogadores numerados!\n");
+        return;
+    }
+
+    if (*totalJogadores + NUM_JOGADORES_DEMO_NUMERADOS > MAX_JOGADORES)
+    {
+        printf("\nLimite de jogadores seria ultrapassado!\n");
+        return;
+    }
+
+    for (int i = 0; i < NUM_JOGADORES_DEMO_NUMERADOS; i++)
+    {
+        Jogador novo = JOGADORES_DEMO_NUMERADOS[i];
+        novo.id = *totalJogadores + 1;
+
+        jogadores[*totalJogadores] = novo;
+        (*totalJogadores)++;
+
+        int indiceTime = buscarIndiceTime(times, totalTimes, novo.idTime);
+
+        if (indiceTime != -1)
+        {
+            times[indiceTime].quantidadeJogadores++;
+        }
+    }
+
+    printf("\n====================================\n");
+    printf(" JOGADORES NUMERADOS ADICIONADOS\n");
+    printf("====================================\n");
+    printf("Jogadores adicionados: %d\n", NUM_JOGADORES_DEMO_NUMERADOS);
+    printf("Total de jogadores agora: %d\n", *totalJogadores);
     printf("====================================\n");
 }

@@ -87,7 +87,7 @@ void registrarPartida(Partida partidas[], int *totalPartidas, Time times[], int 
 
     indiceVisitante = buscarIndiceTime(times, totalTimes, idVisitante);
 
-    if (!validarConfronto(indiceCasa, indiceVisitante))
+    if (!validarConfronto(indiceCasa, indiceVisitante, times))
     {
         printf("Confronto inválido!\n");
         return;
@@ -112,7 +112,7 @@ void registrarPartida(Partida partidas[], int *totalPartidas, Time times[], int 
     printf("\nPartida registrada com sucesso!\n");
 }
 
-int validarConfronto(int indiceCasa, int indiceVisitante)
+int validarConfronto(int indiceCasa, int indiceVisitante, Time times[])
 {
     if (indiceCasa == -1 || indiceVisitante == -1)
     {
@@ -121,6 +121,20 @@ int validarConfronto(int indiceCasa, int indiceVisitante)
 
     if (indiceCasa == indiceVisitante)
     {
+        return 0;
+    }
+
+    if (times[indiceCasa].quantidadeJogadores < MIN_JOGADORES_PARTIDA)
+    {
+        printf("\nO time %s nao possui jogadores suficientes para disputar a partida (minimo: %d, atual: %d)!\n",
+            times[indiceCasa].nome, MIN_JOGADORES_PARTIDA, times[indiceCasa].quantidadeJogadores);
+        return 0;
+    }
+
+    if (times[indiceVisitante].quantidadeJogadores < MIN_JOGADORES_PARTIDA)
+    {
+        printf("\nO time %s nao possui jogadores suficientes para disputar a partida (minimo: %d, atual: %d)!\n",
+            times[indiceVisitante].nome, MIN_JOGADORES_PARTIDA, times[indiceVisitante].quantidadeJogadores);
         return 0;
     }
 

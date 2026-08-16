@@ -75,27 +75,35 @@ void simularPartida (Partida *partida, Time times[], int totalTimes)
     {
         return;
     }
-    if (times[indiceCasa].forca == 100){
-        partida->golsCasa = rand() % 7;
+
+    if (times[indiceCasa].quantidadeJogadores < MIN_JOGADORES_PARTIDA)
+    {
+        printf("Partida adiada: %s nao possui jogadores suficientes (minimo: %d, atual: %d)!\n",
+            times[indiceCasa].nome, MIN_JOGADORES_PARTIDA, times[indiceCasa].quantidadeJogadores);
+        return;
     }
-    else if (times[indiceCasa].forca >= 93){
-        partida->golsCasa = rand() % 5;
-    } else if (times[indiceCasa].forca >= 85){
-        partida->golsCasa = rand() % 4;
-    } else {
-        partida->golsCasa = rand() % 3;
+
+    if (times[indiceVisitante].quantidadeJogadores < MIN_JOGADORES_PARTIDA)
+    {
+        printf("Partida adiada: %s nao possui jogadores suficientes (minimo: %d, atual: %d)!\n",
+            times[indiceVisitante].nome, MIN_JOGADORES_PARTIDA, times[indiceVisitante].quantidadeJogadores);
+        return;
     }
     
-
-    if (times[indiceVisitante].forca == 100){
-        partida->golsVisitante = rand() % 7;
-    }
-    else if (times[indiceVisitante].forca>= 93){
-        partida->golsVisitante = rand() % 5;
-    } else if (times[indiceVisitante].forca >= 85){
-        partida->golsVisitante = rand() % 4;
+    if (times[indiceCasa].forca >= 90){
+        partida->golsCasa = rand() % 6;
+    } else if (times[indiceCasa].forca >= 80){
+        partida->golsCasa = rand() % 5;
     } else {
-        partida->golsVisitante = rand() % 3;
+        partida->golsCasa = rand() % 4;
+    }
+    
+    if (times[indiceVisitante].forca >= 90){
+        partida->golsVisitante = rand() % 6;
+    } else if (times[indiceVisitante].forca >= 80){
+        partida->golsVisitante = rand() % 5;
+    } else {
+        partida->golsVisitante = rand() % 4;
     }
 
     partida->realizada = 1;

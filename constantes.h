@@ -8,5 +8,6 @@
 #define PONTOS_EMPATE 1
 #define TAM_NOME 30
 #define TAM_POSICAO 20
+#define MIN_JOGADORES_PARTIDA 11
 
 #endif
