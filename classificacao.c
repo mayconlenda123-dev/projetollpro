@@ -103,6 +103,6 @@ void mostrarClassificacao(Time times[], int totalTimes)
                 saldo);
         }
     }
-
+    //.
     printf("=========================================================================\n");
 }
